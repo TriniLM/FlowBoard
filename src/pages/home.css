@@ -1,0 +1,33 @@
+.home{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    padding: 10px;
+}
+.navBar{
+    top: 50%;
+    left: 10px;
+    padding: 10px 8px;
+    font-size: 25px;        
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: var(--backgorund-two);
+    border-radius: 10px;
+    font-weight: 200;
+}
+.navBar li:hover{
+    color: var(--color-two);
+    scale: 1.1;
+    transition: color, scale ease 0.3s;
+    cursor: pointer;
+}
+
+.pages{
+    padding: 10px;
+    width: 100%;
+}
+.active{
+    color: var(--color-two);
+}

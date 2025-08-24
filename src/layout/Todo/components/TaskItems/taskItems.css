@@ -1,0 +1,111 @@
+.taksItems{
+    transition: height ease 0.5s;
+    position: relative;
+    height: 35px;
+    margin-top: 10px;
+}
+.openTaksItems{
+    height: 75px;
+}
+.taksItems-info{
+    margin-top: 10px;
+    font-family: var(--font-one);
+    background-color: var(--backgorund-two);
+    border-radius: 10px;
+    padding: 8px 15px ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 400;
+    cursor: pointer;
+    position: relative;
+    z-index: 11;
+    font-size: clamp(10px, 2.5vw, 15px);
+}
+.taksItems-icon{
+    width: 30px;
+    border-left: 1.5px solid #34343a;
+    padding-left: 10px;
+    
+}
+.taskItems-bottom{
+    margin-top: 10px;
+    width: 100%;
+    position:relative;
+    left: 0px;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    z-index: 1;
+    transition: all ease 0.5s;    
+}
+
+.btn-static{
+    display: none;
+}
+.btn-out{
+transform: translateY(-40px);
+animation: animationOut 0.5s ease   forwards ;
+}
+.btn-in{
+    transform: translateY(-40px);
+    display: flex;
+    animation: animationIn 0.5s ease   forwards ;
+}
+@keyframes animationIn {
+    0%{
+        display: flex;
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+@keyframes animationOut {
+    0%{
+        display: flex;
+        transform: translateY(0px);
+    }
+    95%{
+        opacity: 0;
+        display: flex;
+        transform: translateY(-40px)
+    }
+    100%{
+        opacity: 0px;
+        display: none;
+    }
+}
+.taskItems-bottom button{
+    font-family: var(--font-two);
+    font-size: 15px;
+    padding: 7px 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 90px;
+    justify-content: center;
+    cursor: pointer;
+
+}
+.taskItems-bottom button span{
+    font-size: 13px;
+    font-weight: 600;
+
+}
+.taskItems-bottom button:first-child{
+    background-color: var(--color-for);
+    color: var(--text-color);
+}
+.taskItems-bottom button:nth-child(2){
+    background-color:var(--color-one);
+    color: var(--text-color);
+}
+.taskItems-bottom button:nth-child(3){
+    background-color: var(--color-two);
+    color: var(--text-color);
+}
+.task-completed{
+    text-decoration: line-through;
+}
