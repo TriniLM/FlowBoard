@@ -1,0 +1,13 @@
+.counterTime{
+    font-size: 12px;
+    display: flex;
+    position: absolute;
+    right: 5px;
+    top: 30px;
+    z-index: 111;
+    font-family: var(--font-two);
+    align-items: center;
+    gap: 5px;
+    color:rgb(210, 210, 210);
+    font-weight: 600;
+}

@@ -1,7 +1,7 @@
 .taksItems{
     transition: height ease 0.5s;
     position: relative;
-    height: 35px;
+    height: 40px;
     margin-top: 10px;
 }
 .openTaksItems{

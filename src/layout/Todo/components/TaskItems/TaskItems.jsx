@@ -5,6 +5,7 @@ import { FaCheck } from "react-icons/fa";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import deletTask from '../../utils/deletTask';
 import readyTask from '../../utils/readyTask';
+import CounterTime from '../counterTime/CounterTime';
 
 const TaskItems = ({setShowModal, task, listTask, setTask, setUpdateId}) => {
     const [viewSetting, setViewSetting] = useState(null)
@@ -16,6 +17,7 @@ const TaskItems = ({setShowModal, task, listTask, setTask, setUpdateId}) => {
             <p className={`taksItems-title ${task.isCompleted? "task-completed":""}`}>{task.title}</p>
             <img src={`category/${task.category}.png`} alt="" className='taksItems-icon'/>
         </div>
+        {task.date ?<CounterTime time ={task.date}/>:""}
         <div className={`taskItems-bottom ${viewSetting ? "btn-in": viewSetting == false ? "btn-out":"btn-static"}`}>
                 <button onClick={()=>{
                     deletTask(listTask, setTask, task.id)
