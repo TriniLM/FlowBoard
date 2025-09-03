@@ -7,11 +7,11 @@ export default function TaskModal({showModal,setShowModal,task, setTask, updateI
   // Código que quieres ejecutar (efecto)
   if(updateId){
     const taskSelect = task.find(task => task.id == updateId);
-    setTitleTask(taskSelect.title)
+    setTitleTask(taskSelect.title);
+    setCategoryTask(taskSelect.category);
   }
 
 }, [updateId]);
-  
   const [optional, setOptional] = useState(false);
   const [titleTask, setTitleTask] = useState();
   const [categoryTask, setCategoryTask] = useState();
@@ -23,8 +23,14 @@ export default function TaskModal({showModal,setShowModal,task, setTask, updateI
           e.preventDefault();
           createNewTask(titleTask, categoryTask, dateTask, timeTask, optional, task, setTask, updateId, setUpdateId);
           setShowModal(false);
+          // reseteando los valores del modal
           e.target[0].value = "";
-          setTitleTask("")
+          e.target[1].value = "";
+          e.target[2].value = "";
+          e.target[3].value = "";
+          setOptional(false);
+          setTitleTask("");
+          setCategoryTask("");
         }}>
             <h3 className='taskModal-title'>{updateId?"Update Task":"Add new task"}</h3>
             <div className="taskModal-info">
@@ -34,7 +40,9 @@ export default function TaskModal({showModal,setShowModal,task, setTask, updateI
                 setTitleTask(e.target.value);
                 }}>
               </textarea>
-              <select className='taskModal-info__select' required={true} onChange={(e)=> setCategoryTask(e.target.value)}>
+            <select value={categoryTask} className='taskModal-info__select' required={true} onChange={(e)=> {
+              setCategoryTask(e.target.value)
+              }}>
                 <option value="" disabled selected>
                   Select category
                 </option>
@@ -69,7 +77,7 @@ export default function TaskModal({showModal,setShowModal,task, setTask, updateI
                 </div>
               </div>     
                 <div className="taskModal-optional__date">
-                  <input type="date" name="" id="" disabled={!optional} onChange={(e)=> setDateTask(e.target.value)} />
+                  <input type="date" name="" id="" disabled={!optional} onChange={(e)=> setDateTask(e.target.value)}/>
                   <input type="time" name="" id="" disabled={!optional}  onChange={(e)=> setTimeTask(e.target.value)}/>
                 </div>       
             </div>
