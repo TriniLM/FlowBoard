@@ -4,8 +4,7 @@ import { BsRocket } from "react-icons/bs";
 import { FiPlusCircle } from "react-icons/fi";
 import TaskItems from './components/TaskItems/TaskItems';
 import TaskModal from './components/taskModal/TaskModal';
-export default function Todo() {
-  const [task, setTask] = useState([])
+export default function Todo({task, setTask}) {
   const [showModal, setShowModal] = useState(false);
   const [updateId, setUpdateId] = useState()
   return (

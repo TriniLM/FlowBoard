@@ -1,0 +1,43 @@
+.taskAlert{
+    position: relative;
+    display: flex;
+    gap: 5px;
+    padding: 5px;
+    background-color:var(--background-three);
+    font-family: var(--font-one);
+    color: var(--text-color-two);
+    font-size:12px;
+    width: 250px;
+    border-radius: 3px;
+    animation:showAlert 0.3s ease-in-out forwards;
+}
+@keyframes showAlert{
+    0%{
+        scale: 0.5;
+    }
+    100%{
+        scale: 1;
+    }
+}
+.alertVisible{
+    display: none;
+}
+.taskAlert__icon{
+    font-size: 18px;
+    color:var(--color-two);
+}
+.taskAlert__information-title{
+    font-weight: 800;
+}
+.taskAlert__close{
+    position: absolute;
+    right: 5px;
+    color:var(--text-color-two);
+    cursor: pointer;
+    transition: color,transform ease 0.5s;
+}
+.taskAlert__close:hover{
+    color: var(--color-for);
+    z-index: 11;
+    transform: scale(1.2);
+}

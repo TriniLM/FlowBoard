@@ -3,11 +3,13 @@
 :root {
 --backgorund-one: #18181B;
 --backgorund-two: #242428;
+--background-three:#F5F7F8;
 --color-one:#09A8FA;
 --color-two:#28c423;
 --color-thre:#FFD93D;
 --color-for:#FF6B6B;
 --text-color:#FFFCFB;
+--text-color-two:#18181B;
 --font-one:"Roboto", sans-serif;
 --font-two:"Inter", sans-serif;
 }

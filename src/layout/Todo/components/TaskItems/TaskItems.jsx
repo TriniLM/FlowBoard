@@ -17,7 +17,7 @@ const TaskItems = ({setShowModal, task, listTask, setTask, setUpdateId}) => {
             <p className={`taksItems-title ${task.isCompleted? "task-completed":""}`}>{task.title}</p>
             <img src={`category/${task.category}.png`} alt="" className='taksItems-icon'/>
         </div>
-        {task.date ?<CounterTime time ={task.date}/>:""}
+        {task.defineTime ? <CounterTime time ={task.date}/>:""}
         <div className={`taskItems-bottom ${viewSetting ? "btn-in": viewSetting == false ? "btn-out":"btn-static"}`}>
                 <button onClick={()=>{
                     deletTask(listTask, setTask, task.id)

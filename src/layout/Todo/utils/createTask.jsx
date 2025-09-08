@@ -1,5 +1,4 @@
 import { v4 as uuidv4 } from 'uuid';
-import compareTime from './compareTime';
 function createNewTask (title, category, date, time, defineTime, task, setTask, updateId, setUpdateId){
     const taskNew = {
     "id": updateId? updateId:uuidv4(),
@@ -9,9 +8,7 @@ function createNewTask (title, category, date, time, defineTime, task, setTask, 
     "date":defineTime? date + " " + time:false,
     "isCompleted": false
   }
-  let tiempo = date + " " + time;
-  compareTime(tiempo);
-  console.log(taskNew)
+  console.log(taskNew);
   if(updateId){
     const updateTask = task.map((task)=> task.id == updateId? taskNew: task);
     setTask(updateTask);
