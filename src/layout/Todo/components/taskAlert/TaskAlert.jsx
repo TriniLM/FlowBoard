@@ -2,6 +2,7 @@ import {React, useEffect, useState} from 'react';
 import "./taskAlert.css";
 import { AiFillAlert, AiOutlineClose  } from "react-icons/ai";
 import { differenceInMinutes, format,  } from 'date-fns';
+import notificationWindows from '../../utils/windowsNotification';
 export default function TaskAlert({task}) {
   const sound = new Audio("/public/sound/AlertTask.mp3");
   const {title, defineTime, date, isCompleted} = task;
@@ -9,23 +10,28 @@ export default function TaskAlert({task}) {
   const [differenceTime, setDifferenceTime] = useState(differenceInMinutes(date, dateToday));
   const [alertActive, setAlertActive] = useState(false);
  useEffect(()=>{
-  let intervalo = setInterval(()=>{
+  let interval = setInterval(()=>{
     setDifferenceTime((prev)=>{
       if(prev > 0){
       const update = prev -1;
       return update >= 0? update:0
       }
       else{
-        clearInterval(intervalo);
+        clearInterval(interval);
       }
     })
   },6000)
-  return ()=> clearInterval(intervalo)
+  return ()=> clearInterval(interval)
  },[])
+useEffect(()=>{
+   setDifferenceTime(differenceInMinutes(date, dateToday));
+},[date])
+
   useEffect(()=>{
     if(differenceTime == 0){
       sound.play();
       setAlertActive(true);
+      notificationWindows(task.title);
     }
   },[differenceTime])
   return (

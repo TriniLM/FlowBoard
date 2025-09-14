@@ -8,6 +8,9 @@ const CounterTime = ({time}) => {
     const [timeH, setTimeH] = useState(Math.floor(differenceTime/60));
     const [timeM, setTimeM] = useState(differenceTime % 60);
     useEffect(()=>{
+        setDifferenceTime(differenceInMinutes(time, today));
+    },[time])
+    useEffect(()=>{
         let interval = setInterval(() => {
             setDifferenceTime((prev)=>{
               const update = prev -1;

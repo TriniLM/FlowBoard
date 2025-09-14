@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./home.css";
 import Todo from '../layout/Todo/todo.jsx';
 import { LuListTodo, LuCloudMoonRain,LuBellElectric} from "react-icons/lu";
@@ -8,6 +8,12 @@ import TaskAlert from '../layout/Todo/components/taskAlert/TaskAlert.jsx';
 const Home = () => {
     const [page, setPage]= useState("weather");
     const [task, setTask] = useState([]);
+    useEffect(()=>{
+        let storageTask = JSON.parse(localStorage.getItem("task"));
+        if(storageTask){
+            setTask(storageTask);
+        }
+    },[])
     return (
         <div className='home'>
             <div className="taskAlertConteiner">
